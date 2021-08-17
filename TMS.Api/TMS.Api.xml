@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TMS.Api</name>
+    </assembly>
+    <members>
+        <member name="T:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController">
+            <summary>
+            基本信息-货主管理API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.GetOwnerOfCargosAsync(System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+            显示货主管理
+            </summary>
+            <param name="ownerName">货主名称</param>
+            <param name="ownerPhone">货主电话</param>
+            <param name="dateTime">驾驶证有效日期</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.AddOwnerAsync(TMS.Model.Entity.BasicInformation.OwnerOfCargo)">
+            <summary>
+            添加货主
+            </summary>
+            <param name="model">货主信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.UpLoadDrivingLicenceTime">
+            <summary>
+            上传图片车辆照片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.DelOwnerAsync(System.String)">
+            <summary>
+            删除货主信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.EditOwnerAsync(System.Int32)">
+            <summary>
+            反填货主信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController.UpdOwnerAsync(TMS.Model.Entity.BasicInformation.OwnerOfCargo)">
+            <summary>
+            修改货主管理
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController">
+            <summary>
+            基本信息-车辆管理API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.GetCarRegistrationsAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            显示车辆管理
+            </summary>
+            <param name="factoryPlate">厂牌型号</param>
+            <param name="carNumber">车牌号</param>
+            <param name="carName">司机名称</param>
+            <param name="companies">所属公司</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.AddCarAsync(TMS.Model.Entity.RegistrationModel)">
+            <summary>
+            添加车辆信息
+            </summary>
+            <param name="model">车辆信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.UpLoadRegistrationImg">
+            <summary>
+            上传图片车辆照片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.UpLoadMaintainCardImg">
+            <summary>
+            上传图片保险卡照片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.DelCarAsync(System.String)">
+            <summary>
+            删除车辆信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.EditCarAsync(System.Int32)">
+            <summary>
+            反填车辆信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController.UpdCarAsync(TMS.Model.Entity.RegistrationModel)">
+            <summary>
+            修改车辆信息
+            </summary>
+            <param name="model">车辆信息</param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.Setting.MenuAPIController">
+            <summary>
+            菜单API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.MenuAPIController.GetMenusAsync">
+            <summary>
+            根据用户Id显示菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Startup">
+            <summary>
+            Startup 类
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:TMS.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+        <member name="M:TMS.Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            ConfigureContainer是您可以直接注册的地方
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="T:TMS.API.Controllers.UserAPIController">
+            <summary>
+            用户API
+            </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.UserAPIController.GetLoginAsync(System.String,System.String)">
+            <summary>
+            登录
+            </summary>
+            <param name="userName">账号</param>
+            <param name="userPwd">密码</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
