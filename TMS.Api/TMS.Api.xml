@@ -109,13 +109,25 @@
         </member>
         <member name="T:TMS.Api.Controllers.Setting.MenuAPIController">
             <summary>
-            菜单API
+            系统管理-菜单API
             </summary>
         </member>
         <member name="M:TMS.Api.Controllers.Setting.MenuAPIController.GetMenusAsync">
             <summary>
             根据用户Id显示菜单
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.Setting.RoleAPIController">
+            <summary>
+            系统管理-角色API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.RoleAPIController.GetRolesAsync(System.String)">
+            <summary>
+            角色信息显示
+            </summary>
+            <param name="roleName">角色名称查询</param>
             <returns></returns>
         </member>
         <member name="T:TMS.Api.Startup">
@@ -144,7 +156,7 @@
         </member>
         <member name="T:TMS.API.Controllers.UserAPIController">
             <summary>
-            用户API
+            系统管理-用户API
             </summary>
         </member>
         <member name="M:TMS.API.Controllers.UserAPIController.GetLoginAsync(System.String,System.String)">

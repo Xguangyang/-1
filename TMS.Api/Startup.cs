@@ -59,7 +59,6 @@ namespace TMS.Api
             });
             #endregion
 
-
             #region 异常过滤器
             //添加单例类 上下文存取器
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -5,40 +5,39 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TMS.Model.Entity.Setting;
-using TMS.Service.Setting.Menu;
+using TMS.Service.Setting.Role;
 
 namespace TMS.Api.Controllers.Setting
 {
     /// <summary>
-    /// 系统管理-菜单API
+    /// 系统管理-角色API
     /// </summary>
-    [Route("MenuAPI")]
+    [Route("RoleAPI")]
     [ApiController]
-    public class MenuAPIController : ControllerBase
+    public class RoleAPIController : ControllerBase
     {
-        public readonly IMenuService _menuService;
+        private readonly IRoleService _roleService;
 
-        public MenuAPIController(IMenuService menuService)
+        public RoleAPIController(IRoleService roleService)
         {
-            _menuService = menuService;
+            _roleService = roleService;
         }
 
-
         /// <summary>
-        /// 根据用户Id显示菜单
+        /// 角色信息显示
         /// </summary>
+        /// <param name="roleName">角色名称查询</param>
         /// <returns></returns>
-        [Route("GetMenus")]
+        [Route("GetRoles")]
         [HttpGet]
-        public async Task<IActionResult> GetMenusAsync()
+        public async Task<IActionResult> GetRolesAsync(string roleName)
         {
-            List<MenuModel> data = await _menuService.GetMenusAsync();
+            List<RoleModel> data = await _roleService.GetRolesAsync(roleName);
             //判断
             if (data != null)
                 return Ok(new { code = true, meta = 200, msg = "获取成功", count = data.Count, data = data });
             else
                 return Ok(new { code = false, meta = 500, msg = "获取失败", count = data.Count, data = "" });
         }
-
     }
 }
