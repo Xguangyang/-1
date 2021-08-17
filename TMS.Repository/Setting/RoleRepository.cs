@@ -34,5 +34,6 @@ namespace TMS.Repository.Setting
             }
             return data;
         }
+
     }
 }

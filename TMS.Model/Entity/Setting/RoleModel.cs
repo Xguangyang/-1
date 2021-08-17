@@ -35,5 +35,8 @@ namespace TMS.Model.Entity.Setting
         /// 创建时间
         /// </summary>
         public DateTime RoleCreateTime { get; set; }
+
+
+        public string RoleCreateDate { get { return RoleCreateTime.ToString("yyyy-MM-dd HH:ss"); } }
     }
 }

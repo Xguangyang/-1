@@ -107,6 +107,18 @@
             <param name="model">车辆信息</param>
             <returns></returns>
         </member>
+        <member name="T:TMS.Api.Controllers.Setting.DepartmentAPIController">
+            <summary>
+            系统管理-部门API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.DepartmentAPIController.GetDepartmentsAsync(System.String)">
+            <summary>
+            部门信息显示
+            </summary>
+            <param name="depName">部门名称查询</param>
+            <returns></returns>
+        </member>
         <member name="T:TMS.Api.Controllers.Setting.MenuAPIController">
             <summary>
             系统管理-菜单API
