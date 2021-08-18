@@ -4,6 +4,100 @@
         <name>TMS.Api</name>
     </assembly>
     <members>
+        <member name="T:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController">
+            <summary>
+            基本信息—线路API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.GetCircuits(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            显示线路信息
+            </summary>
+            <param name="circuitName">线路名称</param>
+            <param name="startAddress">起点</param>
+            <param name="endAddress">终点</param>
+            <param name="whether">是否是外协</param>
+            <param name="phone">货主手机号</param>
+            <param name="units">货主单位</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.AddCircuit(TMS.Model.Entity.BasicInformation.CircuitAdministration)">
+            <summary>
+            添加线路信息
+            </summary>
+            <param name="model">信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.DelCircuit(System.String)">
+            <summary>
+            删除线路信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.EditCircuit(System.Int32)">
+            <summary>
+            反填线路信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.UpdCircuit(TMS.Model.Entity.BasicInformation.CircuitAdministration)">
+            <summary>
+            修改线路信息
+            </summary>
+            <param name="model">信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.CircuitAdministrationAPIController.SmallUpd(System.Int32,System.Int32)">
+            <summary>
+            小修改
+            </summary>
+            <param name="id">ID</param>
+            <param name="status">状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController">
+            <summary>
+            基本信息-外协单位管理API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController.GetOutsourcingUnits(System.String,System.String)">
+            <summary>
+            外协单位显示
+            </summary>
+            <param name="name">外协单位名称查询</param>
+            <param name="phone">外协单位手机号查询</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController.AddOutsourcingUnit(TMS.Model.Entity.BasicInformation.OutsourcingUnit)">
+            <summary>
+            添加外协单位
+            </summary>
+            <param name="model">信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController.DelOutsourcingUnit(System.String)">
+            <summary>
+            删除外协单位
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController.EditOutsourcingUnit(System.Int32)">
+            <summary>
+            反填外协单位
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.OutsourcingUnitAPIController.UpdOutsourcingUnit(TMS.Model.Entity.BasicInformation.OutsourcingUnit)">
+            <summary>
+            修改外协单位
+            </summary>
+            <param name="model">信息</param>
+            <returns></returns>
+        </member>
         <member name="T:TMS.Api.Controllers.BasicInformation.OwnerOfCargoAPIController">
             <summary>
             基本信息-货主管理API
@@ -50,6 +144,47 @@
             修改货主管理
             </summary>
             <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController">
+            <summary>
+            基本信息-油费API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController.GetPostages(System.String,System.String)">
+            <summary>
+            显示油费信息
+            </summary>
+            <param name="carNum">车牌号</param>
+            <param name="operatorName">经办人</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController.AddPostage(TMS.Model.Entity.BasicInformation.PostageAdministration)">
+            <summary>
+            添加油费信息
+            </summary>
+            <param name="model">信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController.DelPostage(System.String)">
+            <summary>
+            删除油费信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController.EditPostage(System.Int32)">
+            <summary>
+            反填油费信息
+            </summary>
+            <param name="id">ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.BasicInformation.PostageAdministrationAPIController.UpdPostage(TMS.Model.Entity.BasicInformation.PostageAdministration)">
+            <summary>
+            修改油费信息
+            </summary>
+            <param name="model">信息</param>
             <returns></returns>
         </member>
         <member name="T:TMS.Api.Controllers.BasicInformation.VehicleManagementAPIController">
@@ -130,6 +265,27 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TMS.Api.Controllers.Setting.MenuAPIController.TreeAsync">
+            <summary>
+            Tree菜单
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.MenuAPIController.Menu_ID(System.Int32)">
+            <summary>
+            根据角色Id获取该角色的所有菜单Id
+            </summary>
+            <param name="roleID">角色ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.MenuAPIController.AddRoleMenu(System.Int32,System.String)">
+            <summary>
+            分配权限
+            </summary>
+            <param name="roleId">要分配的角色Id</param>
+            <param name="intList">权限菜单Id集合</param>
+            <returns></returns>
+        </member>
         <member name="T:TMS.Api.Controllers.Setting.RoleAPIController">
             <summary>
             系统管理-角色API
@@ -170,6 +326,13 @@
             <summary>
             系统管理-用户API
             </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.UserAPIController.#ctor(TMS.Service.User.IUserService,TMS.Common.Jwt.ITokenHelper)">
+            <summary>
+            构造函数进行注入
+            </summary>
+            <param name="userService"></param>
+            <param name="tokenHelper"></param>
         </member>
         <member name="M:TMS.API.Controllers.UserAPIController.GetLoginAsync(System.String,System.String)">
             <summary>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -16,6 +17,7 @@ namespace TMS.Api.Controllers.BasicInformation
     /// </summary>
     [Route("OwnerOfCargoAPI")]
     [ApiController]
+    [Authorize]
     public class OwnerOfCargoAPIController : ControllerBase
     {
         //用户服务

@@ -10,6 +10,7 @@ using TMS.Model.Entity.Setting;
 using TMS.Model.ViewModel;
 using TMS.Service.Setting.Menu;
 using TMS.Service.User;
+using TMS.Common.Jwt;
 
 namespace TMS.API.Controllers
 {
@@ -23,10 +24,17 @@ namespace TMS.API.Controllers
         //用户服务
         public readonly IUserService _userService;
 
-        //构造函数进行注入
-        public UserAPIController(IUserService userService)
+        private readonly ITokenHelper _tokenHelper;
+
+        /// <summary>
+        /// 构造函数进行注入
+        /// </summary>
+        /// <param name="userService"></param>
+        /// <param name="tokenHelper"></param>
+        public UserAPIController(IUserService userService, ITokenHelper tokenHelper)
         {
             _userService = userService;
+            _tokenHelper = tokenHelper;
         }
 
 
@@ -49,7 +57,13 @@ namespace TMS.API.Controllers
                 //判断是登录成功
                 if (userLogin != null) {
                     UserRoleMenuViewModel.UserId = userLogin.UserID;//获取当前登录的用户Id
-                    return Ok(new { code = true, meta = 200, msg = "登录成功" });
+                    Dictionary<string, string> keyValuePairs = new Dictionary<string, string>
+                    {
+                        { "LoginName", userName },
+                    };
+                    //（2） 后端：帮助类来生成JWT字符串，JWT字符串返回给浏览器
+                    TnToken TnToken = _tokenHelper.CreateToken(keyValuePairs);
+                    return Ok(new { code = true, meta = 200, msg = "登录成功",token= TnToken });
                 }
                 else
                     return Ok(new { code = false, meta = 500, msg = "登录失败" });

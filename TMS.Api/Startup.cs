@@ -81,20 +81,6 @@ namespace TMS.Api
             //services.AddControllers();
             #endregion
 
-            #region Swagger验证及配置
-            //指定由Microsoft.AspNetCore.Mvc.mvcopions配置的运行时行为的版本兼容性。
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TMS.Api", Version = "v1", Description = "TMS.Api" });
-                // 为 Swagger 设置xml文档注释路径
-                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                // 添加控制器层注释，true表示显示控制器注释
-                c.IncludeXmlComments(xmlPath, true);
-            });
-            #endregion
-
             #region JWT配置
             //获取jwt配置项
             var jwtTokenConfig = Configuration.GetSection("JWTConfig").Get<JwtTokenConfig>();
@@ -131,6 +117,54 @@ namespace TMS.Api
                     };
                 }
             );
+            #endregion
+
+            #region Swagger验证及配置
+            //指定由Microsoft.AspNetCore.Mvc.mvcopions配置的运行时行为的版本兼容性。
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TMS.Api", Version = "v1", Description = "TMS.Api" });
+                // 为 Swagger 设置xml文档注释路径
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                // 添加控制器层注释，true表示显示控制器注释
+                c.IncludeXmlComments(xmlPath, true);
+
+                //开启Authorize权限按钮
+                c.AddSecurityDefinition("JWTBearer", new OpenApiSecurityScheme()
+                {
+                    Description = "这是方式一(直接在输入框中输入认证信息，不需要在开头添加Bearer) ",
+                    Name = "Authorization",         //jwt默认的参数名称
+                    In = ParameterLocation.Header,  //jwt默认存放Authorization信息的位置(请求头中)
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "Bearer"
+                });
+
+                //定义JwtBearer认证方式二
+                //options.AddSecurityDefinition("JwtBearer", new OpenApiSecurityScheme()
+                //{
+                //    Description = "这是方式二(JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）)",
+                //    Name = "Authorization",//jwt默认的参数名称
+                //    In = ParameterLocation.Header,//jwt默认存放Authorization信息的位置(请求头中)
+                //    Type = SecuritySchemeType.ApiKey
+                //});
+
+                //声明一个Scheme，注意下面的Id要和上面AddSecurityDefinition中的参数name一致
+                var scheme = new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference()
+                    {
+                        Id = "JWTBearer",   //这个名字与上面的一样
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+                //注册全局认证（所有的接口都可以使用认证）
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    { scheme, Array.Empty<string>() }
+                });
+            });
             #endregion
 
             #region 跨域
@@ -179,9 +213,10 @@ namespace TMS.Api
             app.UseHttpsRedirection();
             //路由
             app.UseRouting();
+            //必须启用身份验证中间件
+            app.UseAuthentication();
             //授权
             app.UseAuthorization();
-
             //配置Cors跨域
             app.UseCors("cor");
 

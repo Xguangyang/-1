@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TMS.Common.MyFilters;
 using TMS.Model.Entity.Setting;
 using TMS.Service.Setting.Menu;
 
@@ -14,6 +16,9 @@ namespace TMS.Api.Controllers.Setting
     /// </summary>
     [Route("MenuAPI")]
     [ApiController]
+    [ApiWrapException]
+    [ApiWrapResult]
+    [Authorize]
     public class MenuAPIController : ControllerBase
     {
         public readonly IMenuService _menuService;
@@ -32,13 +37,44 @@ namespace TMS.Api.Controllers.Setting
         [HttpGet]
         public async Task<IActionResult> GetMenusAsync()
         {
-            List<MenuModel> data = await _menuService.GetMenusAsync();
-            //判断
-            if (data != null)
-                return Ok(new { code = true, meta = 200, msg = "获取成功", count = data.Count, data = data });
-            else
-                return Ok(new { code = false, meta = 500, msg = "获取失败", count = data.Count, data = "" });
+            return Ok(await _menuService.GetMenusAsync());
         }
+
+        /// <summary>
+        /// Tree菜单
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet, Route("Tree")]
+        public async Task<IActionResult> TreeAsync()
+        {
+            return Ok(await _menuService.Tree());
+        }
+
+
+        /// <summary>
+        /// 根据角色Id获取该角色的所有菜单Id
+        /// </summary>
+        /// <param name="roleID">角色ID</param>
+        /// <returns></returns>
+        [HttpGet,Route("Menu_ID")]
+        public async Task<IActionResult> Menu_ID(int roleID)
+        {
+            return Ok(await _menuService.Menu_ID(roleID));
+        }
+
+
+        /// <summary>
+        /// 分配权限
+        /// </summary>
+        /// <param name="roleId">要分配的角色Id</param>
+        /// <param name="intList">权限菜单Id集合</param>
+        /// <returns></returns>
+        [HttpPost,Route("AddRoleMenu")]
+        public async Task<IActionResult> AddRoleMenu(int roleId,string intList)
+        {
+            return Ok(await _menuService.AddRoleMenu(roleId, intList));
+        }
+
 
     }
 }

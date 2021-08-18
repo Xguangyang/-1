@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace TMS.Api.Controllers.Setting
     /// </summary>
     [Route("RoleAPI")]
     [ApiController]
+    [Authorize]
     public class RoleAPIController : ControllerBase
     {
         private readonly IRoleService _roleService;
