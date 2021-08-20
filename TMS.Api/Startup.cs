@@ -176,6 +176,7 @@ namespace TMS.Api
                   .AllowAnyHeader()
                   .SetIsOriginAllowed(_ => true) // =AllowAnyOrigin()
                   .AllowCredentials();
+                 
             }));
             #endregion
         }
@@ -253,6 +254,4 @@ namespace TMS.Api
         }
         #endregion
     }
-
-
 }

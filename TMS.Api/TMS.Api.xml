@@ -298,6 +298,17 @@
             <param name="roleName">角色名称查询</param>
             <returns></returns>
         </member>
+        <member name="T:TMS.Api.Program">
+            <summary>
+            Program  类
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Program.Main(System.String[])">
+            <summary>
+            主函数  入口
+            </summary>
+            <param name="args"></param>
+        </member>
         <member name="T:TMS.Api.Startup">
             <summary>
             Startup 类

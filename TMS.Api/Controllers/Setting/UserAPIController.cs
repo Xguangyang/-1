@@ -55,7 +55,8 @@ namespace TMS.API.Controllers
                 //执行登录
                 UserModel userLogin = await _userService.GetLoginAsync(userName, userPwd);
                 //判断是登录成功
-                if (userLogin != null) {
+                if (userLogin != null)
+                {
                     UserRoleMenuViewModel.UserId = userLogin.UserID;//获取当前登录的用户Id
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>
                     {
@@ -63,7 +64,7 @@ namespace TMS.API.Controllers
                     };
                     //（2） 后端：帮助类来生成JWT字符串，JWT字符串返回给浏览器
                     TnToken TnToken = _tokenHelper.CreateToken(keyValuePairs);
-                    return Ok(new { code = true, meta = 200, msg = "登录成功",token= TnToken });
+                    return Ok(new { code = true, meta = 200, msg = "登录成功", name = userLogin.UserName, token = TnToken });
                 }
                 else
                     return Ok(new { code = false, meta = 500, msg = "登录失败" });
@@ -74,6 +75,6 @@ namespace TMS.API.Controllers
             }
         }
 
-       
+
     }
 }
