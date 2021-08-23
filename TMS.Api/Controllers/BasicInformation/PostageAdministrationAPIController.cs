@@ -47,7 +47,7 @@ namespace TMS.Api.Controllers.BasicInformation
         /// </summary>
         /// <param name="model">信息</param>
         /// <returns></returns>
-        [Route("AddOutsourcingUnit")]
+        [Route("AddPostage")]
         [HttpPost]
         public async Task<IActionResult> AddPostage(PostageAdministration model)
         {
@@ -60,7 +60,7 @@ namespace TMS.Api.Controllers.BasicInformation
         /// </summary>
         /// <param name="id">ID</param>
         /// <returns></returns>
-        [Route("DelOutsourcingUnit")]
+        [Route("DelPostage")]
         [HttpPost]
         public async Task<IActionResult> DelPostage(string id)
         {
@@ -72,7 +72,7 @@ namespace TMS.Api.Controllers.BasicInformation
         /// </summary>
         /// <param name="id">ID</param>
         /// <returns></returns>
-        [Route("EditOutsourcingUnit")]
+        [Route("EditPostage")]
         [HttpGet]
         public async Task<IActionResult> EditPostage(int id)
         {
@@ -84,7 +84,7 @@ namespace TMS.Api.Controllers.BasicInformation
         /// </summary>
         /// <param name="model">信息</param>
         /// <returns></returns>
-        [Route("UpdOutsourcingUnit")]
+        [Route("UpdPostage")]
         [HttpPost]
         public async Task<IActionResult> UpdPostage(PostageAdministration model)
         {

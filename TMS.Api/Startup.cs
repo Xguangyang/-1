@@ -22,6 +22,8 @@ using System.Threading.Tasks;
 using TMS.Common.DB;
 using TMS.Common.Jwt;
 using TMS.Common.Log;
+using TMS.Common.MyFilters;
+using TMS.Common.Redis;
 using TMS.Common.SQLInject;
 using TMS.IRepository;
 using TMS.IRepository.User;
@@ -71,11 +73,32 @@ namespace TMS.Api
             services.AddMvc(config => config.Filters.Add(typeof(CustomExceptionFilter)));
             #endregion
 
+            #region  Redis缓存
+            //redis缓存
+            var section = Configuration.GetSection("Redis:Default");
+            //连接字符串
+            ConfigHelperRedis._conn = section.GetSection("Connection").Value;
+            //实例化名称
+            ConfigHelperRedis._name = section.GetSection("InstanceName").Value;
+            //密码
+            ConfigHelperRedis._pwd = section.GetSection("PassWord").Value;
+            //默认数据库
+            ConfigHelperRedis._db = int.Parse(section.GetSection("DefaultDB").Value ?? "0");
+            //端口号
+            ConfigHelperRedis._port = int.Parse(section.GetSection("Prot").Value);
+            //服务器名称/IP
+            ConfigHelperRedis._server = section.GetSection("Server").Value;
+
+            services.AddSingleton(new RedisHelper());
+
+            #endregion
+
             #region SQL注入
             //控制器上加SQL注入过滤器
             services.AddControllers(options =>
             {
-                options.Filters.Add<CustomSQLInjectFilter>();
+               // options.Filters.Add<CustomSQLInjectFilter>();
+                options.Filters.Add<ApiWrapExceptionAttribute>();
             });
 
             //services.AddControllers();

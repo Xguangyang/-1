@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Newtonsoft.Json;
+using System.Security.Cryptography;
 
 namespace TMS.Common.Jwt
 {
@@ -102,5 +104,49 @@ namespace TMS.Common.Jwt
                 TokenStr = new JwtSecurityTokenHandler().WriteToken(token)
             };
         }
+
+
+
+        /// <summary>
+        /// 解密token
+        /// </summary>
+        /// <param name="Token"></param>
+        /// <returns></returns>
+        public bool GetClaimFtomToken(string Token, out Dictionary<string, string> keyValuePairs)
+        {
+            //以.号分割Token
+            string[] Jwtparte = Token.Split('.');
+
+            if (Jwtparte.Length < 3)
+            {
+                keyValuePairs = null;
+                return false;
+            }
+
+            //解析头部,并且反序列化
+            string headerJson = Base64UrlEncoder.Decode(Jwtparte[0]);
+            var header = JsonConvert.DeserializeObject<Dictionary<string, string>>(headerJson);
+
+
+            //解析荷载,并且反序列化
+            string PayJson = Base64UrlEncoder.Decode(Jwtparte[0]);
+            var Pay = JsonConvert.DeserializeObject<Dictionary<string, string>>(PayJson);
+
+            //签名无法解析，生成秘钥  进行比较
+            var hs256 = new HMACSHA256(Encoding.UTF8.GetBytes(_options.Value.IssuerSigningKey));
+
+            string signHash = Base64UrlEncoder.Encode(hs256.ComputeHash(Encoding.UTF8.GetBytes(Jwtparte[0] + "." + Jwtparte[1])));
+
+            if (!signHash.Equals(Jwtparte[2]))
+            {
+                keyValuePairs = null;
+                return false;
+            }
+            //解析时间
+            keyValuePairs = Pay;
+            return true;
+        }
+
+
     }
 }

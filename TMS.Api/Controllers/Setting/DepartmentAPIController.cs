@@ -16,7 +16,6 @@ namespace TMS.Api.Controllers.Setting
     /// </summary>
     [Route("DepartmentAPI")]
     [ApiController]
-    [ApiWrapException]
     [ApiWrapResult]
     [Authorize]
     public class DepartmentAPIController : ControllerBase

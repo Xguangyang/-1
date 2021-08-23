@@ -16,7 +16,6 @@ namespace TMS.Api.Controllers.BasicInformation
     /// </summary>
     [Route("OutsourcingUnitAPI")]
     [ApiController]
-    [ApiWrapException]
     [ApiWrapResult]
     [Authorize]
     public class OutsourcingUnitAPIController : ControllerBase

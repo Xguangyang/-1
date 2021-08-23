@@ -16,7 +16,6 @@ namespace TMS.Api.Controllers.Setting
     /// </summary>
     [Route("MenuAPI")]
     [ApiController]
-    [ApiWrapException]
     [ApiWrapResult]
     [Authorize]
     public class MenuAPIController : ControllerBase

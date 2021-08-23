@@ -16,7 +16,6 @@ namespace TMS.Api.Controllers.BasicInformation
     /// </summary>
     [Route("CircuitAdministrationAPI")]
     [ApiController]
-    [ApiWrapException]
     [ApiWrapResult]
     [Authorize]
     public class CircuitAdministrationAPIController : ControllerBase

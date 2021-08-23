@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TMS.Common.MyFilters;
 using TMS.Model.Entity.Setting;
 using TMS.Service.Setting.Role;
 
@@ -15,7 +16,7 @@ namespace TMS.Api.Controllers.Setting
     /// </summary>
     [Route("RoleAPI")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class RoleAPIController : ControllerBase
     {
         private readonly IRoleService _roleService;
@@ -40,6 +41,19 @@ namespace TMS.Api.Controllers.Setting
                 return Ok(new { code = true, meta = 200, msg = "获取成功", count = data.Count, data = data });
             else
                 return Ok(new { code = false, meta = 500, msg = "获取失败", count = data.Count, data = "" });
+        }
+
+        /// <summary>
+        /// 11
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet,Route("GetValue")]
+        public IActionResult GetValue()
+        {
+            int i = 10;
+            int j = 0;
+            int c = i / j;
+            return Ok(c);
         }
     }
 }

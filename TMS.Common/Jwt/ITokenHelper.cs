@@ -25,5 +25,13 @@ namespace TMS.Common.Jwt
         /// <param name="keyValuePairs"></param>
         /// <returns></returns>
         TnToken CreateToken(Dictionary<string, string> keyValuePairs);
+
+        /// <summary>
+        /// 解密Token
+        /// </summary>
+        /// <param name="Token"></param>
+        /// <returns></returns>
+        bool GetClaimFtomToken(string Token, out Dictionary<string, string> keyValuePairs);
+
     }
 }

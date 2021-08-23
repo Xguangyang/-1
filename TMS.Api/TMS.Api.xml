@@ -298,6 +298,12 @@
             <param name="roleName">角色名称查询</param>
             <returns></returns>
         </member>
+        <member name="M:TMS.Api.Controllers.Setting.RoleAPIController.GetValue">
+            <summary>
+            11
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TMS.Api.Program">
             <summary>
             Program  类
@@ -351,6 +357,13 @@
             </summary>
             <param name="userName">账号</param>
             <param name="userPwd">密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.API.Controllers.UserAPIController.RefreshToken(System.String)">
+            <summary>
+            刷新Token令牌
+            </summary>
+            <param name="guid"></param>
             <returns></returns>
         </member>
     </members>

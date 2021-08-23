@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMS.Common.Log;
 
 namespace TMS.Common.MyFilters
 {
@@ -46,6 +47,7 @@ namespace TMS.Common.MyFilters
             {
                 innerMessage += "," + ex.InnerException.Message;
             }
+            NLogHelper.Error(ex.Message);
 
             return new JsonResult(new { code, message, innerMessage });
         }
