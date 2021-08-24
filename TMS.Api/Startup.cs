@@ -97,7 +97,7 @@ namespace TMS.Api
             //控制器上加SQL注入过滤器
             services.AddControllers(options =>
             {
-               // options.Filters.Add<CustomSQLInjectFilter>();
+                options.Filters.Add<CustomSQLInjectFilter>();
                 options.Filters.Add<ApiWrapExceptionAttribute>();
             });
 

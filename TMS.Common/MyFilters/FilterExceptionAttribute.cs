@@ -12,5 +12,6 @@ namespace TMS.Common.MyFilters
 {
     public class FilterExceptionAttribute
     {
+
     }
 }

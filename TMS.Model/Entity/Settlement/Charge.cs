@@ -18,7 +18,7 @@ namespace TMS.Model.Entity.Settlement
         /// <summary>
         /// 业务单号
         /// </summary>
-        public int ProfessionalNo { get; set; }
+        public string ProfessionalNo { get; set; }
         /// <summary>
         /// 货主单位
         /// </summary>
