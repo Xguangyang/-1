@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace WebApplication1.Model
+namespace TMS.Model.Entity.Purchase
 {
     /// <summary>
     /// 物资领用管理

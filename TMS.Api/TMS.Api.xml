@@ -242,6 +242,17 @@
             <param name="model">车辆信息</param>
             <returns></returns>
         </member>
+        <member name="T:TMS.Api.Controllers.Personnel.KanbanAPIController">
+            <summary>
+            人事管理-看板API
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.Personnel.KanbanAPIController.GetLeaveKanban">
+            <summary>
+            离职人数看板
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TMS.Api.Controllers.Setting.DepartmentAPIController">
             <summary>
             系统管理-部门API
@@ -284,6 +295,18 @@
             </summary>
             <param name="roleId">要分配的角色Id</param>
             <param name="intList">权限菜单Id集合</param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.Api.Controllers.Setting.PositionAPIController">
+            <summary>
+            系统管理-职位管理
+            </summary>
+        </member>
+        <member name="M:TMS.Api.Controllers.Setting.PositionAPIController.GetPosition(System.String)">
+            <summary>
+            显示职位信息
+            </summary>
+            <param name="positionName">职位名称查询</param>
             <returns></returns>
         </member>
         <member name="T:TMS.Api.Controllers.Setting.RoleAPIController">
@@ -338,6 +361,123 @@
             ConfigureContainer是您可以直接注册的地方
             </summary>
             <param name="builder"></param>
+        </member>
+        <member name="T:TMS.API.Controllers.Personnel.Employeeregistration.EmployeeregistrationAPIController">
+            <summary>
+            人事管理-员工登记API
+            </summary>
+        </member>
+        <member name="F:TMS.API.Controllers.Personnel.Employeeregistration.EmployeeregistrationAPIController._employeeregistration">
+            <summary>
+            员工登记服务
+            </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.Employeeregistration.EmployeeregistrationAPIController.#ctor(TMS.Service.Personnel.IEmployeeregistrationService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="employeeregistration"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.Employeeregistration.EmployeeregistrationAPIController.GetEmployeeRegistrations(System.String,System.Int32,System.Int32,System.String,System.Int32)">
+            <summary>
+            人事模块—员工登记—显示API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.Employeeregistration.EmployeeregistrationAPIController.AddEmployeeRegistrations(TMS.Model.Entity.UserModel)">
+            <summary>
+            人事模块—员工登记—添加API
+            </summary>
+            <param name="userModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.API.Controllers.Personnel.HiredToHandlerAPIController">
+            <summary>
+            人事管理-入职办理
+            </summary>
+        </member>
+        <member name="F:TMS.API.Controllers.Personnel.HiredToHandlerAPIController._hiredToHandlerService">
+            <summary>
+            入职办理
+            </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.HiredToHandlerAPIController.#ctor(TMS.Service.Personnel.IHiredToHandlerService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="positiveToDealService"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.HiredToHandlerAPIController.GetHiredToHandlerViewModels(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32)">
+            <summary>
+            入职办理—显示
+            </summary>
+            <param name="EmpName"></param>
+            <param name="EmpDeparName"></param>
+            <param name="PosterName"></param>
+            <param name="EntryTime"></param>
+            <param name="CreateTime"></param>
+            <param name="ExamineStatus"></param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.API.Controllers.Personnel.LeaveToDealAPIController">
+            <summary>
+            人事管理-离职办理
+            </summary>
+        </member>
+        <member name="F:TMS.API.Controllers.Personnel.LeaveToDealAPIController._leaveToDealRepository">
+            <summary>
+            入职办理
+            </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.LeaveToDealAPIController.#ctor(TMS.Service.Personnel.ILeaveToDealService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="positiveToDealService"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.LeaveToDealAPIController.GetLeaveToDealViewModel(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32)">
+            <summary>
+            人事模块—离职办理—显示
+            </summary>
+            <param name="EmpName">员工姓名</param>
+            <param name="EmpDeparName">部门名称</param>
+            <param name="PosterName">职位名称</param>
+            <param name="EntryTime">入职日期</param>
+            <param name="LeaveTime">离职日期</param>
+            <param name="ExamineStatus">审批状态</param>
+            <returns></returns>
+        </member>
+        <member name="T:TMS.API.Controllers.Personnel.PositiveToDealAPIController">
+            <summary>
+            人事管理-转正办理
+            </summary>
+        </member>
+        <member name="F:TMS.API.Controllers.Personnel.PositiveToDealAPIController._positiveToDealService1">
+            <summary>
+            转正办理
+            </summary>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.PositiveToDealAPIController.#ctor(TMS.Service.Personnel.IPositiveToDealService,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="positiveToDealService"></param>
+            <param name="hostingEnvironment"></param>
+        </member>
+        <member name="M:TMS.API.Controllers.Personnel.PositiveToDealAPIController.GetLeaveToDealViewModel(System.String,System.String,System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32)">
+            <summary>
+            人事模块—转正办理—显示
+            </summary>
+            <param name="EmpName">员工姓名</param>
+            <param name="EmpDeparName">部门名称</param>
+            <param name="PosterName">职位名称</param>
+            <param name="EntryTime">入职日期</param>
+            <param name="ProposerTime">申请日期</param>
+            <param name="ExamineStatus">审批状态</param>
+            <returns></returns>
         </member>
         <member name="T:TMS.API.Controllers.UserAPIController">
             <summary>

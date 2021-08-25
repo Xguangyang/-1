@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TMS.Model.Purchase
+namespace TMS.Model.Entity.Purchase
 {
     /// <summary>
     /// 物资采购

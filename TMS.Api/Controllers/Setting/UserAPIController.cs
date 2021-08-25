@@ -64,6 +64,8 @@ namespace TMS.API.Controllers
                     Dictionary<string, string> keyValuePairs = new Dictionary<string, string>
                     {
                         { "LoginName", userName },
+                        { "DateTime",DateTime.Now.ToString("yyyy-MM-dd HH:mm;ss dddd")}
+
                     };
                     //（2） 后端：帮助类来生成JWT字符串，JWT字符串返回给浏览器
                     TnToken TnToken = _tokenHelper.CreateToken(keyValuePairs);

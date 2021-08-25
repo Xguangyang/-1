@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace TMS.Model.Purchase
+namespace TMS.Model.Entity.Purchase
 {
     /// <summary>
     /// 入库管理

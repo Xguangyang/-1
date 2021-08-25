@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace TMS.Model.Personnel
+namespace TMS.Model.Entity.Personnel
 {
     /// <summary>
     /// 员工表
