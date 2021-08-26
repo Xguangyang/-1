@@ -36,9 +36,9 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("GetOutsourcingUnits")]
         [HttpGet]
-        public async Task<IActionResult> GetOutsourcingUnits(string name, string phone)
+        public async Task<IActionResult> GetOutsourcingUnits(string Name, string Phone)
         {
-            return Ok(await _outsourcingUnit.GetOutsourcingUnits(name, phone));
+            return Ok(await _outsourcingUnit.GetOutsourcingUnits(Name, Phone));
         }
 
         /// <summary>
@@ -48,9 +48,9 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("AddOutsourcingUnit")]
         [HttpPost]
-        public async Task<IActionResult> AddOutsourcingUnit(OutsourcingUnit model)
+        public async Task<IActionResult> AddOutsourcingUnit(OutsourcingUnit Model)
         {
-            return Ok(await _outsourcingUnit.AddOutsourcingUnit(model));
+            return Ok(await _outsourcingUnit.AddOutsourcingUnit(Model));
         }
 
         /// <summary>
@@ -60,9 +60,9 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("DelOutsourcingUnit")]
         [HttpPost]
-        public async Task<IActionResult> DelOutsourcingUnit(string id)
+        public async Task<IActionResult> DelOutsourcingUnit(string Id)
         {
-            return Ok(await _outsourcingUnit.DelOutsourcingUnit(id));
+            return Ok(await _outsourcingUnit.DelOutsourcingUnit(Id));
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("EditOutsourcingUnit")]
         [HttpGet]
-        public async Task<IActionResult> EditOutsourcingUnit(int id)
+        public async Task<IActionResult> EditOutsourcingUnit(int Id)
         {
-            return Ok(await _outsourcingUnit.EditOutsourcingUnit(id));
+            return Ok(await _outsourcingUnit.EditOutsourcingUnit(Id));
         }
 
         /// <summary>
@@ -84,9 +84,9 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("UpdOutsourcingUnit")]
         [HttpPost]
-        public async Task<IActionResult> UpdOutsourcingUnit(OutsourcingUnit model)
+        public async Task<IActionResult> UpdOutsourcingUnit(OutsourcingUnit Model)
         {
-            return Ok(await _outsourcingUnit.UpdOutsourcingUnit(model));
+            return Ok(await _outsourcingUnit.UpdOutsourcingUnit(Model));
         }
 
 

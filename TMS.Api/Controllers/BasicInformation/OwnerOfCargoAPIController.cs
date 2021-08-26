@@ -35,17 +35,17 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <summary>
         /// 显示货主管理
         /// </summary>
-        /// <param name="ownerName">货主名称</param>
-        /// <param name="ownerPhone">货主电话</param>
-        /// <param name="dateTime">驾驶证有效日期</param>
+        /// <param name="OwnerName">货主名称</param>
+        /// <param name="OwnerPhone">货主电话</param>
+        /// <param name="DateTime">驾驶证有效日期</param>
         /// <returns></returns>
         [Route("GetOwnerOfCargos")]
         [HttpGet]
-        public async Task<IActionResult> GetOwnerOfCargosAsync(string ownerName = "", string ownerPhone = "", DateTime? dateTime = null)
+        public async Task<IActionResult> GetOwnerOfCargosAsync(string OwnerName = "", string OwnerPhone = "", DateTime? DateTime = null)
         {
             try
             {
-                List<OwnerOfCargo> data = await _owner.GetOwnerOfCargosAsync(ownerName, ownerPhone, dateTime);
+                List<OwnerOfCargo> data = await _owner.GetOwnerOfCargosAsync(OwnerName, OwnerPhone, DateTime);
                 //判断
                 if (data != null)
                     return Ok(new { code = true, meta = 200, msg = "获取成功", count = data.Count, data = data });
@@ -61,15 +61,15 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <summary>
         /// 添加货主
         /// </summary>
-        /// <param name="model">货主信息</param>
+        /// <param name="Model">货主信息</param>
         /// <returns></returns>
         [Route("AddOwner")]
         [HttpPost]
-        public async Task<IActionResult> AddOwnerAsync(OwnerOfCargo model)
+        public async Task<IActionResult> AddOwnerAsync(OwnerOfCargo Model)
         {
             try
             {
-                bool data = await _owner.AddOwnerAsync(model);
+                bool data = await _owner.AddOwnerAsync(Model);
                 if (data == true)
                     return Ok(new { code = data, meta = 200, msg = "添加成功" });
                 else
@@ -98,15 +98,15 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <summary>
         /// 删除货主信息
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         [Route("DelOwner")]
         [HttpPost]
-        public async Task<IActionResult> DelOwnerAsync(string id)
+        public async Task<IActionResult> DelOwnerAsync(string Id)
         {
             try
             {
-                bool data = await _owner.DelOwnerAsync(id);
+                bool data = await _owner.DelOwnerAsync(Id);
                 if (data == true)
                     return Ok(new { code = data, meta = 200, msg = "删除成功" });
                 else
@@ -121,15 +121,15 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <summary>
         /// 反填货主信息
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         [Route("EditOwner")]
         [HttpGet]
-        public async Task<IActionResult> EditOwnerAsync(int id)
+        public async Task<IActionResult> EditOwnerAsync(int Id)
         {
             try
             {
-                OwnerOfCargo data = await _owner.EditOwnerAsync(id);
+                OwnerOfCargo data = await _owner.EditOwnerAsync(Id);
                 if (data != null)
                     return Ok(new { code = true, meta = 200, msg = "获取成功", data = data });
                 else
@@ -144,15 +144,15 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <summary>
         /// 修改货主管理
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="Model"></param>
         /// <returns></returns>
         [Route("UpdOwner")]
         [HttpPost]
-        public async Task<IActionResult> UpdOwnerAsync(OwnerOfCargo model)
+        public async Task<IActionResult> UpdOwnerAsync(OwnerOfCargo Model)
         {
             try
             {
-                bool data = await _owner.UpdOwnerAsync(model);
+                bool data = await _owner.UpdOwnerAsync(Model);
                 if (data == true)
                     return Ok(new { code = data, meta = 200, msg = "修改成功" });
                 else

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>E:\实训实习\实训二\core\TMS\TMS.Api\TMS.Api.xml</DocumentationFile>
+		<DocumentationFile>D:\物联网专业二\实训二\项目3\VS\TMS\TMS.Api\TMS.Api.xml</DocumentationFile>
 	</PropertyGroup>
 	
   <ItemGroup>

@@ -26,10 +26,10 @@ namespace TMS.Api.Controllers.BasicInformation
         private readonly IHostingEnvironment _hostingEnvironment;
 
         //构造函数进行注入
-        public VehicleManagementAPIController(IVehicleManagementService carRegistration, IHostingEnvironment hostingEnvironment)
+        public VehicleManagementAPIController(IVehicleManagementService carRegistration, IHostingEnvironment eostingEnvironment)
         {
             _carRegistration = carRegistration;
-            _hostingEnvironment = hostingEnvironment;
+            _hostingEnvironment = eostingEnvironment;
         }
 
         /// <summary>

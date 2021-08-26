@@ -72,12 +72,12 @@ namespace TMS.API.Controllers
 
                     string guid = Guid.NewGuid().ToString();//生成全球唯一标识符
 
-                    //连接redis
-                    using (RedisClient redisClient = new RedisClient(ConfigHelperRedis._server, ConfigHelperRedis._port, ConfigHelperRedis._pwd, ConfigHelperRedis._db))
-                    {
-                        //设置刷新时间  （大于过期时间）
-                        redisClient.Set(guid, keyValuePairs, TimeSpan.FromMinutes(10));
-                    }
+                    ////连接redis
+                    //using (RedisClient redisClient = new RedisClient(ConfigHelperRedis._server, ConfigHelperRedis._port, ConfigHelperRedis._pwd, ConfigHelperRedis._db))
+                    //{
+                    //    //设置刷新时间  （大于过期时间）
+                    //    redisClient.Set(guid, keyValuePairs, TimeSpan.FromMinutes(10));
+                    //}
 
                     return Ok(new { code = true, meta = 200, msg = "登录成功", name = userLogin.UserName, guid = guid, token = TnToken });
                 }

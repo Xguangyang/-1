@@ -23,72 +23,72 @@ namespace TMS.Api.Controllers.BasicInformation
     {
         private readonly IPostageAdministrationService _postage;
 
-        public PostageAdministrationAPIController(IPostageAdministrationService postage)
+        public PostageAdministrationAPIController(IPostageAdministrationService Postage)
         {
-            _postage = postage;
+            _postage = Postage;
         }
 
         /// <summary>
         /// 显示油费信息
         /// </summary>
-        /// <param name="carNum">车牌号</param>
+        /// <param name="CarNum">车牌号</param>
         /// <param name="operatorName">经办人</param>
         /// <returns></returns>
         [Route("GetPostages")]
         [HttpGet]
-        public async Task<IActionResult> GetPostages(string carNum, string operatorName)
+        public async Task<IActionResult> GetPostages(string CarNum, string OperatorName)
         {
-            return Ok(await _postage.GetPostages(carNum, operatorName));
+            return Ok(await _postage.GetPostages(CarNum, OperatorName));
         }
 
 
         /// <summary>
         /// 添加油费信息
         /// </summary>
-        /// <param name="model">信息</param>
+        /// <param name="Model">信息</param>
         /// <returns></returns>
         [Route("AddPostage")]
         [HttpPost]
-        public async Task<IActionResult> AddPostage(PostageAdministration model)
+        public async Task<IActionResult> AddPostage(PostageAdministration Model)
         {
-            return Ok(await _postage.AddPostage(model));
+            return Ok(await _postage.AddPostage(Model));
         }
 
 
         /// <summary>
         /// 删除油费信息
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="Id">ID</param>
         /// <returns></returns>
         [Route("DelPostage")]
         [HttpPost]
-        public async Task<IActionResult> DelPostage(string id)
+        public async Task<IActionResult> DelPostage(string Id)
         {
-            return Ok(await _postage.DelPostage(id));
+            return Ok(await _postage.DelPostage(Id));
         }
 
         /// <summary>
         /// 反填油费信息
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="Id">ID</param>
         /// <returns></returns>
         [Route("EditPostage")]
         [HttpGet]
-        public async Task<IActionResult> EditPostage(int id)
+        public async Task<IActionResult> EditPostage(int Id)
         {
-            return Ok(await _postage.EditPostage(id));
+            return Ok(await _postage.EditPostage(Id));
         }
 
         /// <summary>
         /// 修改油费信息
         /// </summary>
-        /// <param name="model">信息</param>
+        /// <param name="Model">信息</param>
         /// <returns></returns>
         [Route("UpdPostage")]
         [HttpPost]
-        public async Task<IActionResult> UpdPostage(PostageAdministration model)
+        public async Task<IActionResult> UpdPostage(PostageAdministration Model)
         {
-            return Ok(await _postage.UpdPostage(model));
+            return Ok(await _postage.UpdPostage(Model));
         }
 
     }

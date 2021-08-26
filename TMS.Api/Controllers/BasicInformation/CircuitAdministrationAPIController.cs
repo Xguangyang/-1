@@ -39,72 +39,72 @@ namespace TMS.Api.Controllers.BasicInformation
         /// <returns></returns>
         [Route("GetCircuits")]
         [HttpGet]
-        public async Task<IActionResult> GetCircuits(string circuitName, string startAddress, string endAddress, string whether, string phone, string units)
+        public async Task<IActionResult> GetCircuits(string CircuitName, string StartAddress, string EndAddress, string Whether, string Phone, string Units)
         {
-            return Ok(await _circuit.GetCircuits(circuitName, startAddress, endAddress, whether, phone, units));
+            return Ok(await _circuit.GetCircuits(CircuitName, StartAddress, EndAddress, Whether, Phone, Units));
         }
 
 
         /// <summary>
         /// 添加线路信息
         /// </summary>
-        /// <param name="model">信息</param>
+        /// <param name="Model">信息</param>
         /// <returns></returns>
         [Route("AddCircuit")]
         [HttpPost]
-        public async Task<IActionResult> AddCircuit(CircuitAdministration model)
+        public async Task<IActionResult> AddCircuit(CircuitAdministration Model)
         {
-            return Ok(await _circuit.AddCircuit(model));
+            return Ok(await _circuit.AddCircuit(Model));
         }
 
 
         /// <summary>
         /// 删除线路信息
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="Id">ID</param>
         /// <returns></returns>
         [Route("DelCircuit")]
         [HttpPost]
-        public async Task<IActionResult> DelCircuit(string id)
+        public async Task<IActionResult> DelCircuit(string Id)
         {
-            return Ok(await _circuit.DelCircuit(id));
+            return Ok(await _circuit.DelCircuit(Id));
         }
 
 
         /// <summary>
         /// 反填线路信息
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="Id">ID</param>
         /// <returns></returns>
         [Route("EditCircuit")]
         [HttpGet]
-        public async Task<IActionResult> EditCircuit(int id)
+        public async Task<IActionResult> EditCircuit(int Id)
         {
-            return Ok(await _circuit.EditCircuit(id));
+            return Ok(await _circuit.EditCircuit(Id));
         }
 
         /// <summary>
         /// 修改线路信息
         /// </summary>
-        /// <param name="model">信息</param>
+        /// <param name="Model">信息</param>
         /// <returns></returns>
         [Route("UpdCircuit")]
         [HttpPost]
-        public async Task<IActionResult> UpdCircuit(CircuitAdministration model)
+        public async Task<IActionResult> UpdCircuit(CircuitAdministration Model)
         {
-            return Ok(await _circuit.UpdCircuit(model));
+            return Ok(await _circuit.UpdCircuit(Model));
         }
 
         /// <summary>
         /// 小修改
         /// </summary>
-        /// <param name="id">ID</param>
+        /// <param name="Id">ID</param>
         /// <param name="status">状态</param>
         /// <returns></returns>
         [HttpPost,Route("SmallUpd")]
-        public async Task<IActionResult> SmallUpd(int id, int status)
+        public async Task<IActionResult> SmallUpd(int Id, int Status)
         {
-            return Ok(await _circuit.SmallUpd(id, status));
+            return Ok(await _circuit.SmallUpd(Id, Status));
         }
     }
 }
